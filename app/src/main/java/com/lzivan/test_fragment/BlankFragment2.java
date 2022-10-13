@@ -66,7 +66,7 @@ public class BlankFragment2 extends Fragment {
 //        return inflater.inflate(R.layout.fragment_blank2, container, false);
 //    }
     View view;
-    private String arry[] = { "Cow", "Rooster", "Dog", "Pig", "Cat", "Horse", "Snake" };
+    private String arry[] = { "Cow", "Rooster", "Dog", "Pig", "Cat", "Horse"};
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState){
         view = inflater.inflate(R.layout.fragment_blank2,container,false);
@@ -103,21 +103,52 @@ public class BlankFragment2 extends Fragment {
                 getParentFragmentManager().setFragmentResult("dataFrom1",result);
                 if (String.valueOf(adapterView.getAdapter().getItem(i)).equals("Cow")){
                     cow.start();
+//                    rooster.stop();
+//                    dog.stop();
+//                    cat.stop();
+//                    horse.stop();
+//                    pig.stop();
                 }
-                else if (String.valueOf(adapterView.getAdapter().getItem(i)).equals("Rooster")){
+                if (String.valueOf(adapterView.getAdapter().getItem(i)).equals("Rooster")){
                     rooster.start();
+//                    cow.stop();
+//                    dog.stop();
+//                    cat.stop();
+//                    horse.stop();
+//                    pig.stop();
                 }
-                else if (String.valueOf(adapterView.getAdapter().getItem(i)).equals("Dog")){
+                if (String.valueOf(adapterView.getAdapter().getItem(i)).equals("Dog")){
                     dog.start();
+//                    rooster.stop();
+//                    cow.stop();
+//                    cat.stop();
+//                    horse.stop();
+//                    pig.stop();
                 }
-                else if (String.valueOf(adapterView.getAdapter().getItem(i)).equals("Pig")){
+                if (String.valueOf(adapterView.getAdapter().getItem(i)).equals("Pig")){
                     pig.start();
+//                    rooster.stop();
+//                    dog.stop();
+//                    cat.stop();
+//                    horse.stop();
+//                    cow.stop();
                 }
-                else if (String.valueOf(adapterView.getAdapter().getItem(i)).equals("Cat")){
+                if (String.valueOf(adapterView.getAdapter().getItem(i)).equals("Cat")){
                     cat.start();
+//                    rooster.stop();
+//                    dog.stop();
+//                    cow.stop();
+//                    horse.stop();
+//                    pig.stop();
                 }
-                else if (String.valueOf(adapterView.getAdapter().getItem(i)).equals("Horse")){
+                if (String.valueOf(adapterView.getAdapter().getItem(i)).equals("Horse")){
                     horse.start();
+//                    rooster.stop();
+//                    dog.stop();
+//                    cat.stop();
+//                    cow.stop();
+//                    pig.stop();
+
                 }
 
             }
