@@ -1,5 +1,7 @@
 package com.lzivan.test_fragment;
 
+import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,8 +9,12 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Toast;
 
 
 public class BlankFragment2 extends Fragment {
@@ -60,19 +66,60 @@ public class BlankFragment2 extends Fragment {
 //        return inflater.inflate(R.layout.fragment_blank2, container, false);
 //    }
     View view;
-
+    private String arry[] = { "Cow", "Rooster", "Dog", "Pig", "Cat", "Horse", "Snake" };
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState){
         view = inflater.inflate(R.layout.fragment_blank2,container,false);
-        Button send = view.findViewById(R.id.button);
-        send.setOnClickListener(new View.OnClickListener() {
+//        Button send = view.findViewById(R.id.button);
+//        send.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                EditText editText = view.findViewById(R.id.editdata);
+//                Bundle result = new Bundle();
+//                result.putString("df1",editText.getText().toString());
+//                getParentFragmentManager().setFragmentResult("dataFrom1",result);
+//                editText.setText("");
+//            }
+//        });
+        final MediaPlayer cow = MediaPlayer.create(getActivity(), R.raw.cow);
+        final MediaPlayer rooster = MediaPlayer.create(getActivity(), R.raw.rooster);
+        final MediaPlayer dog = MediaPlayer.create(getActivity(), R.raw.dog);
+        final MediaPlayer pig = MediaPlayer.create(getActivity(), R.raw.pig);
+        final MediaPlayer cat = MediaPlayer.create(getActivity(), R.raw.cat);
+        final MediaPlayer horse = MediaPlayer.create(getActivity(), R.raw.horse);
+        ListView lv = (ListView)view.findViewById(R.id.ListView);
+        ArrayAdapter<String> array = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_list_item_1);
+        for (String str : arry)
+            array.add(str);
+        lv.setAdapter(array);
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                EditText editText = view.findViewById(R.id.editdata);
+            public void onItemClick(AdapterView<?> adapterView, View v, int i, long l) {
+                Toast.makeText(getActivity(), ""+(adapterView.getAdapter().getItem(i)),Toast.LENGTH_SHORT).show();
                 Bundle result = new Bundle();
-                result.putString("df1",editText.getText().toString());
+                result.putString("df1",String.valueOf(adapterView.getAdapter().getItem(i)));
                 getParentFragmentManager().setFragmentResult("dataFrom1",result);
-                editText.setText("");
+                if (String.valueOf(adapterView.getAdapter().getItem(i)).equals("Cow")){
+                    cow.start();
+                }
+                else if (String.valueOf(adapterView.getAdapter().getItem(i)).equals("Rooster")){
+                    rooster.start();
+                }
+                else if (String.valueOf(adapterView.getAdapter().getItem(i)).equals("Dog")){
+                    dog.start();
+                }
+                else if (String.valueOf(adapterView.getAdapter().getItem(i)).equals("Pig")){
+                    pig.start();
+                }
+                else if (String.valueOf(adapterView.getAdapter().getItem(i)).equals("Cat")){
+                    cat.start();
+                }
+                else if (String.valueOf(adapterView.getAdapter().getItem(i)).equals("Horse")){
+                    horse.start();
+                }
+
             }
         });
         return view;

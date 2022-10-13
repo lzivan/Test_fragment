@@ -66,6 +66,27 @@ public class BlankFragment extends Fragment {
                 String data = result.getString("df1");
                 TextView textView = view.findViewById(R.id.text);
                 textView.setText(data);
+                if (data.equals("Cat")){
+                    textView.setBackgroundResource(R.drawable.cats);
+                }
+                if (data.equals("Dog")){
+                    textView.setBackgroundResource(R.drawable.dog);
+                }
+                if (data.equals("Pig")){
+                    textView.setBackgroundResource(R.drawable.pig);
+                }
+                if (data.equals("Horse")){
+                    textView.setBackgroundResource(R.drawable.horse);
+                }
+                if (data.equals("Snake")){
+                    textView.setBackgroundResource(R.drawable.snake);
+                }
+                if (data.equals("Rooster")){
+                    textView.setBackgroundResource(R.drawable.zhiyin);
+                }
+                if (data.equals("Cow")){
+                    textView.setBackgroundResource(R.drawable.cow);
+                }
             }
         });
         // Inflate the layout for this fragment
